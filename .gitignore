@@ -1,0 +1,9 @@
+node_modules/
+dist/
+venv/
+.env
+__pycache__/
+.DS_Store
+.claude/
+frontend/public/video/
+research/data/*.xlsx

@@ -1,0 +1,170 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "generated": "2026-10-25",
+    "tiers": "ideal > good > fair > poor > dangerous (fair/poor = concerning). Values are [min,max], null = unbounded.",
+    "source_tags": {
+      "regulatory": "WAC 173-201A (Mar 2025), EPA criteria, Carlson 1996, WHO 2003 as fetched",
+      "literature": "published study values (USGS 2010, Richter & Kolmes 2005, Auburn) as fetched",
+      "recalled": "published values I recalled but could not open this session (Dodds 1998, EPA 1986 Gold Book TP, Nurnberg TN)",
+      "estimated": "my interpolation, show as estimated in UI"
+    },
+    "ponds": "use lake bands (no pond standards exist); streams and rivers share bands",
+    "sampling_window": "June-September (WAC 173-201A-230(2)(a))"
+  },
+  "total_phosphorus_ug_L": {
+    "lake_pond": {
+      "ideal": [0, 10],
+      "good": [10, 20],
+      "fair": [20, 35],
+      "poor": [35, 96],
+      "dangerous": [96, null],
+      "source": "regulatory",
+      "note": "<=4 ultra-oligotrophic (WAC); 4-10 oligo; 10-20 lower meso; 20-35 upper meso (Columbia Basin); >96 Carlson hypereutrophic"
+    },
+    "stream_river": {
+      "ideal": [0, 10],
+      "good": [10, 25],
+      "fair": [25, 42],
+      "poor": [42, 100],
+      "dangerous": [100, null],
+      "source": "literature+recalled",
+      "note": "10 = EPA Eco II rivers; 25 = Dodds oligo/meso (recalled); 42-129 = USGS biological breakpoint; 100 = EPA 1986 (recalled)"
+    }
+  },
+  "total_nitrogen_ug_L": {
+    "lake_pond": {
+      "ideal": [0, 350],
+      "good": [350, 650],
+      "fair": [650, 1200],
+      "poor": [1200, 2400],
+      "dangerous": [2400, null],
+      "source": "recalled+estimated",
+      "note": "EPA Eco II ref 100-410; Nurnberg bands 350/650/1200 (recalled)"
+    },
+    "stream_river": {
+      "ideal": [0, 300],
+      "good": [300, 700],
+      "fair": [700, 1500],
+      "poor": [1500, 2400],
+      "dangerous": [2400, null],
+      "source": "literature+recalled",
+      "note": "Dodds 700/1500 (recalled); USGS breakpoint 2400-3300; EPA Eco II ref 120"
+    }
+  },
+  "chlorophyll_a_ug_L": {
+    "lake_pond": {
+      "ideal": [0, 2.6],
+      "good": [2.6, 7.3],
+      "fair": [7.3, 10],
+      "poor": [10, 50],
+      "dangerous": [50, null],
+      "source": "regulatory",
+      "note": "Carlson 2.6/7.3; WHO: 10 (low probability of cyanobacteria health effects) and 50 (moderate)"
+    },
+    "stream_river_seston": {
+      "ideal": [0, 2],
+      "good": [2, 4.5],
+      "fair": [4.5, 7.5],
+      "poor": [7.5, 30],
+      "dangerous": [30, null],
+      "source": "literature+estimated",
+      "note": "4.5-7.5 = USGS seston breakpoint; EPA Eco II ref 1.08"
+    },
+    "stream_river_benthic_mg_m2": {
+      "ideal": [0, 20],
+      "good": [20, 54],
+      "fair": [54, 68],
+      "poor": [68, 150],
+      "dangerous": [150, null],
+      "source": "literature+recalled",
+      "note": "54-68 = USGS periphyton breakpoint; 20 Dodds (recalled). Different unit (mg/m2), so it is not used for scoring"
+    }
+  },
+  "secchi_depth_m": {
+    "lake_pond": {
+      "ideal": [4, null],
+      "good": [2, 4],
+      "fair": [1, 2],
+      "poor": [0.5, 1],
+      "dangerous": [0, 0.5],
+      "source": "regulatory",
+      "note": "Carlson table; EPA Eco II ref 4.5, Puget Lowlands 3.5"
+    },
+    "stream_river": null,
+    "stream_note": "Use turbidity instead: WAC <=5 NTU over background (strict salmonid uses), 10 NTU (rearing/migration only); EPA Eco II ref 1.3 NTU"
+  },
+  "water_temperature_C": {
+    "stream_river_salmonid": {
+      "ideal": [0, 16],
+      "good": [16, 17.5],
+      "fair": [17.5, 20],
+      "poor": [20, 24],
+      "dangerous": [24, null],
+      "source": "regulatory+literature",
+      "note": "WAC 7-DADMax 12 char/16 core/17.5/18 redband/20 warm; feeding drops near 22; death in hours 24-26; >26 lethal; >27-30 minutes"
+    },
+    "lake": {
+      "ideal": [0, 17.5],
+      "good": [17.5, 20],
+      "fair": [20, 22],
+      "poor": [22, 24],
+      "dangerous": [24, null],
+      "source": "regulatory+estimated"
+    },
+    "pond_warmwater": {
+      "ideal": [0, 20],
+      "good": [20, 26],
+      "fair": [26, 28],
+      "poor": [28, 30],
+      "dangerous": [30, null],
+      "source": "regulatory+estimated",
+      "note": "only 20 is a WAC value (warm-water species)"
+    },
+    "too_cold": "No WA minimum; <4 slows metabolism; ice cover risks oxygen depletion"
+  },
+  "dissolved_oxygen_mg_L": {
+    "coldwater": {
+      "ideal": [10, null],
+      "good": [8, 10],
+      "fair": [6.5, 8],
+      "poor": [4, 6.5],
+      "dangerous": [0, 4],
+      "acute_risk": [0, 3],
+      "hypoxic": [0, 1],
+      "source": "regulatory",
+      "note": "WAC 10 mg/L or 90% sat (salmonid uses), 6.5 (rearing/migration, warm water); EPA 1986 coldwater: 30-d mean 6.5, 7-d mean ELS 9.5, 1-d min 4.0 (8.0 ELS)"
+    },
+    "warmwater": {
+      "ideal": [6.5, null],
+      "good": [5.5, 6.5],
+      "fair": [4, 5.5],
+      "poor": [3, 4],
+      "dangerous": [0, 3],
+      "hypoxic": [0, 1],
+      "source": "regulatory",
+      "note": "EPA 1986 warmwater: 30-d mean 5.5, 7-d mean ELS 6.0, 1-d min 3.0 (5.0 ELS)"
+    },
+    "supersaturation_pct": {
+      "flag": 110,
+      "note": "WAC total dissolved gas limit 110%; gas bubble trauma risk above that; wide daily swings signal algae"
+    }
+  },
+  "pH": {
+    "all": {
+      "ideal": [7, 8],
+      "good_low": [6.5, 7],
+      "good_high": [8, 8.5],
+      "fair_low": [6, 6.5],
+      "fair_high": [8.5, 9],
+      "poor_low": [5, 6],
+      "poor_high": [9, 10],
+      "dangerous_low": [0, 5],
+      "dangerous_high": [10, 14],
+      "lethal_low": [0, 4],
+      "lethal_high": [11, 14],
+      "source": "regulatory 6.5-8.5 (WAC); EPA 6.5-9.0; Auburn: acid death <4, alkaline >10-11",
+      "rate_of_change": "sudden change of 1.5+ units can kill ~half of fish; WAC caps human-caused change at 0.2 (char/core summer) or 0.5 units"
+    }
+  }
+}
